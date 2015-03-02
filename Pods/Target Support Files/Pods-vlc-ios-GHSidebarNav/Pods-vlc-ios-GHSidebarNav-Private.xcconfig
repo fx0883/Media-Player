@@ -1,0 +1,5 @@
+#include "Pods-vlc-ios-GHSidebarNav.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/GHSidebarNav" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GHSidebarNav" "${PODS_ROOT}/Headers/Public/InAppSettingsKit" "${PODS_ROOT}/Headers/Public/OBSlider" "${PODS_ROOT}/Headers/Public/PLCrashReporter" "${PODS_ROOT}/Headers/Public/QuincyKit" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2/BoxSDK" "${PODS_ROOT}/Headers/Public/upnpx"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}

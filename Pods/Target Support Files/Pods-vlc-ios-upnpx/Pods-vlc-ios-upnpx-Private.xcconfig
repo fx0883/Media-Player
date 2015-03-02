@@ -1,0 +1,7 @@
+#include "Pods-vlc-ios-upnpx.xcconfig"
+CLANG_CXX_LANGUAGE_STANDARD = ${PODS_VLC_IOS_UPNPX_CLANG_CXX_LANGUAGE_STANDARD}
+CLANG_CXX_LIBRARY = ${PODS_VLC_IOS_UPNPX_CLANG_CXX_LIBRARY}
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/upnpx" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GHSidebarNav" "${PODS_ROOT}/Headers/Public/InAppSettingsKit" "${PODS_ROOT}/Headers/Public/OBSlider" "${PODS_ROOT}/Headers/Public/PLCrashReporter" "${PODS_ROOT}/Headers/Public/QuincyKit" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2/BoxSDK" "${PODS_ROOT}/Headers/Public/upnpx"
+OTHER_LDFLAGS = ${PODS_VLC_IOS_UPNPX_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

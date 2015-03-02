@@ -1,0 +1,5 @@
+#include "Pods-vlc-ios-box-ios-sdk-v2.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/box-ios-sdk-v2" "${PODS_ROOT}/Headers/Build/box-ios-sdk-v2/BoxSDK" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GHSidebarNav" "${PODS_ROOT}/Headers/Public/InAppSettingsKit" "${PODS_ROOT}/Headers/Public/OBSlider" "${PODS_ROOT}/Headers/Public/PLCrashReporter" "${PODS_ROOT}/Headers/Public/QuincyKit" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2/BoxSDK" "${PODS_ROOT}/Headers/Public/upnpx"
+OTHER_LDFLAGS = ${PODS_VLC_IOS_BOX_IOS_SDK_V__OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

@@ -1,0 +1,1 @@
+../../../QuincyKit/client/iOS/BWQuincyManagerDelegate.h

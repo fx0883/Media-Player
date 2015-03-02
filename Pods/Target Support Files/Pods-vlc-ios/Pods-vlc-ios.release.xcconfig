@@ -1,0 +1,9 @@
+CLANG_CXX_LANGUAGE_STANDARD = c++0x
+CLANG_CXX_LIBRARY = libstdc++
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/PLCrashReporter/iOS Framework" "$(PODS_ROOT)/QuincyKit/client/iOS"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GHSidebarNav" "${PODS_ROOT}/Headers/Public/InAppSettingsKit" "${PODS_ROOT}/Headers/Public/OBSlider" "${PODS_ROOT}/Headers/Public/PLCrashReporter" "${PODS_ROOT}/Headers/Public/QuincyKit" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2" "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2/BoxSDK" "${PODS_ROOT}/Headers/Public/upnpx"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/GHSidebarNav" -isystem "${PODS_ROOT}/Headers/Public/InAppSettingsKit" -isystem "${PODS_ROOT}/Headers/Public/OBSlider" -isystem "${PODS_ROOT}/Headers/Public/PLCrashReporter" -isystem "${PODS_ROOT}/Headers/Public/QuincyKit" -isystem "${PODS_ROOT}/Headers/Public/SSKeychain" -isystem "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2" -isystem "${PODS_ROOT}/Headers/Public/box-ios-sdk-v2/BoxSDK" -isystem "${PODS_ROOT}/Headers/Public/upnpx"
+OTHER_LDFLAGS = -ObjC -weak_library /usr/lib/libstdc++.dylib -l"Pods-vlc-ios-GHSidebarNav" -l"Pods-vlc-ios-InAppSettingsKit" -l"Pods-vlc-ios-OBSlider" -l"Pods-vlc-ios-PLCrashReporter" -l"Pods-vlc-ios-QuincyKit" -l"Pods-vlc-ios-SSKeychain" -l"Pods-vlc-ios-box-ios-sdk-v2" -l"Pods-vlc-ios-upnpx" -l"stdc++" -framework "CrashReporter" -framework "Foundation" -framework "MessageUI" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

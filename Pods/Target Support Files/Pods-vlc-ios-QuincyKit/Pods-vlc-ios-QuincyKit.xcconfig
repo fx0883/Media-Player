@@ -1,0 +1,2 @@
+PODS_VLC_IOS_QUINCYKIT_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/QuincyKit/client/iOS"
+PODS_VLC_IOS_QUINCYKIT_OTHER_LDFLAGS = -framework "CrashReporter" -framework "SystemConfiguration"

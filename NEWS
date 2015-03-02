@@ -1,0 +1,233 @@
+2.5 (not yet released):
+-----------------------
+* Added support for iCloud Drive (#8688)
+* Added support for box.com (#11301)
+* Added support for OneDrive (#13413)
+* Added a lock button to the playback view, supporting both orientation and
+  controls (#11293, #11292)
+* Added 10-band equalizer (#9032)
+* Added support for chapters and titles to the playback dialog (#11560)
+* Cleaned-up playback view appearance with more features and less clutter
+* Added enhanced media information to the library view (#13564)
+* Added notifications about missing storage space when syncing media (#11474)
+
+2.4.1:
+------
+* Fixed subtitles downloading in some corner cases
+* Appearance fixes for playback speed selector and download view on iPhone
+* Improved WiFi Sharing reliability by disabling IPv6 support by default
+* Improved UPnP reliability and speed
+* Various minor UI improvements
+* Fixed regression leading to incomplete library listings on iPad
+* Improved decoding reliability by deploying FFmpeg instead of libav
+
+2.4:
+----
+* Added support for iPhone 6 and 6+
+* Download of currently stored media via WiFi in addition to upload (#11289)
+* Detection of external subtitles when streaming media via http or ftp (#10668)
+* Folder support for GDrive (#11019)
+* Support for streaming from GDrive
+* Native support for Plex media servers
+* Support for file sharing with further apps installed on device (#11302)
+* Option to download media from http/ftp/https instead of direct playback when
+  requested through third-party app (#11147)
+* Folders synced through iTunes are correctly parsed now (#9158)
+* Option to set text encoding used for FTP connections (#10611)
+* Option to set default playback speed (#10595)
+* Media library search (#11303)
+* Improved reliability when a call comes in during playback
+* Improved subtitles playback reliability (#11225)
+* Support for redirected downloads via HTTP (#10639)
+* Support for audio playback and subtitles delay for manual sync (#11236)
+* Added improved interaction with third party apps through a x-callback-url
+  based mechanism
+  URL scheme: vlc-x-callback://x-callback-url/stream?url=...&x-success=...
+  The 'stream' path component overwrites the "Download or Stream?" dialog
+  displayed when third party URLs are being opened.
+* Media Library is no longer reset on upgrade (#11330)
+  - no further thumbnail mismatch (#9158 et al)
+  - playback states are retained
+  - improved first launch after upgrade reliability
+* Fix browsing of a number of UPnP devices such as HDHomeRun without sorting
+  capabilities (#11667)
+* Fix pseudo-random playback starts (#11993)
+* Improved passcode lock appearance (#13166)
+* Minor UI improvements (#11296, #11637, #13165, #13169)
+* Network stream history allows copying URLs
+* Improved reliability when syncing media via WiFi or iTunes (#13128)
+* Stability improvements for iOS 6.1
+* New translation to Traditional Chinese
+
+2.3:
+----
+* New ability to organize media in folders (#9043)
+* Support for password protected HTTP streams (#9028)
+* WiFi uploads and HTTP downloads continue in the background
+  (2 min on iOS 7, 10 min on iOS 6)
+* Added option to disable playback control gestures (#10592)
+* Added option to use bold subtitles (#10882)
+* Modified behavior: when passcode lock is enabled, playback will be stopped
+  when VLC enters the background state (#10630, #10747)
+* Fixed serial ftp downloads
+* Fixed downloads from Twonky UPnP servers (#10631)
+* Fixed playback control through lock screen, headphones or multi-tasking view
+  (#10932)
+* Playback is paused when headphones are unplugged (#11041)
+* Improved UPnP discovery speed with some servers (#10811)
+* Improved memory consumption (#9505)
+* Added support for m4b, caf, oma, w64 audio and mxg video files
+* Caches for WiFi upload and HTTP downloads are emptied more often to
+  keep storage impact reasonable
+* Stability improvements and UX tweaks (amongst others #10601, #10518)
+* New translations to Latvian, Romanian and British English
+
+2.2.2:
+------
+* Fixed audio playback regression introduced in previous update (#10597)
+* Updated translations to Arabic, Chinese (Hans), Dutch, Galician, Hungarian,
+  Portuguese
+
+2.2.1:
+------
+* Added initial support for ARM64 aka AArch64 aka ARMv8
+* Improved reliability for Dropbox streaming (#10489)
+* Added option to adapt network caching (#10388)
+* Compatibility fixes for multiple UPnP servers (notably Twonky 7, Serviio 1.4,
+  XBMC 12)
+* Fixed an issue where always the same file in a UPnP folder was played (#10441)
+* Fixed a ftp streaming issue from connected servers if file name contains
+  non-ASCII characters or the path contains spaces (#10469)
+* Improved meta data readability within the iPad library view (#10471)
+* Improved stability on iOS 6
+* Improved Thumbnails
+* Misc stability improvements (#10490)
+
+2.2.0:
+------
+NB: This release removes support for iOS 5 and therefore the first generation
+iPad. iOS 6 and the iPhone 3GS remain supported.
+
+Interface:
+* New Interface for iOS 7
+* Add tutorial to introduce the user to the app
+* Improved feedback for media download progress including data bitrate,
+  procentual progress and estimated remaining download time
+* Opening network streams no longer leads to a collapsed file system hierachy
+  on the remote system. After playback, you can continue where you left off.
+* Added bookmarks for FTP servers
+* Added support for multi-touch gestures based upon the VLC Gestures haxie
+  - horizontal swipe for playback position
+  - tap with 2 fingers to play/pause
+  - vertical swipe in the right half of the video to adapt volume
+  - vertical swipe in the left half of the video to adapt screen brightness
+* Previously removed episodes and tracks no longer show up in the respective
+  group listings (#9705)
+* Improved privacy by requesting the passcode immediately after leaving the
+  app and by obfuscating playback metadata if passcode lock is enabled
+* Added support to endlessly repeat the currently playing item (#9793)
+* Added option to disable file name display optimizations (#10050)
+* TV Shows are sorted by Season number / Episode number and Music Albums
+  respectively by track number
+* Added ability to rename any media item in the library view
+* Added deletion of multiple media items in one step
+* If your media was recognized as part of a music album, the next track
+  will automatically start playing afterwards
+* New translations to Czech, Malay, Persian, Spanish (Mexico)
+
+Cloud interaction:
+* Added support for downloads from Google Drive (#8690)
+* Added support for streaming files from Dropbox in addition to download
+  to device (#9784)
+
+Local network:
+* Added support for downloading from UPnP multimedia servers
+* Added cover-art and duration to UPnP server item lists
+* UPnP stability improvements
+* Fix incorrect displayed size for files stored on UPnP multimedia servers
+  larger than 2147.48 MB (#9641)
+* Improved WiFi Upload reliability, especially when uploading multiple
+  items at the same time
+
+Global networks:
+* Added support for HTTP Live Streaming (HLS) (#9174)
+* Added support for https playback
+* Added support for system-wide HTTP proxy settings
+* Added support for m3u streams
+
+Misc:
+* Improved audio playback performance and reliability
+* Improved metadata detection
+* Improved vlc:// handling (#9542)
+* Improved TV show handling for shows with more than 100 episodes
+
+2.1.3:
+------
+* Fixed crashes with files whose names are less than 6 characters long after
+  removing the file extension
+
+2.1.2:
+------
+* Stability improvements (#9393, #9431, #9432, #9433, #9434, #9435, #9556)
+* Improved Closed Caption rendering (#9369)
+* Minor UI fixes (#9454)
+* New translations to Hungarian and Swedish
+
+2.1.1:
+------
+* Stability improvements
+* Improved UPnP handling
+* Improved interaction with third party apps
+* Improved visual appearance on iPad
+* Added support for Teletext-based DVB subtitles
+* New translations to Arabic, Polish, and Korean
+
+2.1:
+----
+* Improved overall stability (#8989, #9031, #9048, #9089, #9092)
+* Add support for subtitles in non-western languages (#8991)
+* Improved Subtitles support with options to choose font, size, and color
+* Add UPnP discovery and streaming (#8880)
+* Add FTP server discovery, streaming and downloading (#9064)
+* Add Bonjour announcements for the WiFi Uploader's website (#8741)
+* Add playback of audio-only media (#9044)
+* Newly implemented menu and application flow (#9045)
+* Improved VoiceOver and accessibility support (#9017)
+* Add Deinterlace option (off by default, #8813)
+* Device no longer goes to sleep during media downloads (#9062)
+* Improved video output on external screens (#9055, #9079)
+* Improved Passcode Lock behavior (#9252)
+* Minor usability improvements (#9122, #9125, #9225)
+* New translations to Bosnian, Catalan, Galician, Greek, Marathi, Portuguese,
+  Slovenian
+
+2.0.2:
+------
+* Fix MP2 and MP3 decoding (#8986)
+* Add vlc:// protocol handler (#8988)
+  - vlc://anyprotocol:// allows you to force any URL to open in VLC
+  - vlc://server/path will assume http://
+* Fix Dropbox hierarchy navigation (#8993)
+* Fix major leak of data when opening files in VLC from other apps (#9011)
+* Retain last audio and subtitles tracks when for played media (#8987)
+* Fix CSS rendering issue in the WiFi Uploader's web interface
+* Switch Default Subtitles Font from SourceSans-Pro to Open Sans
+  to support Greek, Cyrillic and Vietnamese (#8991)
+* Shake device to create a bug report (#7788)
+* Export meta data about current playback item to multitasking view (#8883)
+* Fix crash when opening network streams from within third party apps while
+  playing content local to VLC (#9013)
+* Fix VoiceOver support for Dropbox login (#8997)
+* Fix dialog rotation on iOS 5 (#8992)
+* New translations to Chinese, Danish, Dutch, Hebrew, Slovak, Turkish,
+  Ukrainian, Vietnamese
+
+2.0.1:
+------
+* Update of Russian and Spanish translations.
+* Minor crash fix (#8739) and interface fix for iPhone 4.
+* Add option for skipping loop filtering (#8814)
+
+2.0.0:
+------
+First project release.
