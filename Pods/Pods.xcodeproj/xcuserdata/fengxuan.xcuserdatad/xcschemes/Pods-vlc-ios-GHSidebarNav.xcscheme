@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCBB01025F21EAB7F6F32B5C"
+               BlueprintIdentifier = "EA65B295913FEF53B13D190D"
                BuildableName = "libPods-vlc-ios-GHSidebarNav.a"
                BlueprintName = "Pods-vlc-ios-GHSidebarNav"
                ReferencedContainer = "container:Pods.xcodeproj">

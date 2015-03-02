@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6FD5054B2EA53B8E51DDDDC"
+               BlueprintIdentifier = "B7EE6801428D4A3DECD99501"
                BuildableName = "libPods-vlc-ios-box-ios-sdk-v2.a"
                BlueprintName = "Pods-vlc-ios-box-ios-sdk-v2"
                ReferencedContainer = "container:Pods.xcodeproj">
