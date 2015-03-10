@@ -2721,7 +2721,7 @@
 				ORGANIZATIONNAME = VideoLAN;
 				TargetAttributes = {
 					7D94FCDA16DE7D1000F2623B = {
-						DevelopmentTeam = Q338FB3789;
+						DevelopmentTeam = 7744GTG2HX;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -3591,7 +3591,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 521108CBC3CAA0810AF3CBA8 /* Pods-vlc-ios.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv64,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -3644,7 +3648,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AB5E0853B398B35369938EC /* Pods-vlc-ios.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv64,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -3723,7 +3731,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E09EACF57CDD22ABAE66CDD0 /* Pods-vlc-ios.distribution.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv64,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;

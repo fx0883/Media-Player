@@ -26,6 +26,8 @@
 		<string>git://github.com/fkuehne/CocoaHTTPServer.git</string>
 		<key>A53B8F3E739B0A1A93B20BCC79FD4C75D0424DCF</key>
 		<string>git://github.com/fkuehne/WhiteRaccoon.git</string>
+		<key>BEA4886D7D5EBA7DE360D288117A7D8E7BA707C1</key>
+		<string>https://github.com/fx0883/Media-Player.git</string>
 		<key>E2C3B3D4A084F704F085298FA14FC4A795C8DE08</key>
 		<string>git://git.videolan.org/MediaLibraryKit.git</string>
 	</dict>
@@ -34,23 +36,25 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>052f66bb-8366-e9ed-b056-95094e25c79e++2896</key>
-		<string>..ImportedSources/GDrive</string>
+		<string>../../iosImportedSources/GDrive</string>
 		<key>0EFDF2D073A77BC2CB2CF6173E0F3A830E66F8AF</key>
-		<string>..ImportedSources/VLCKit</string>
+		<string>../../iosImportedSources/VLCKit</string>
 		<key>22754eea-fc93-e339-b032-c1f495b90c16++2896</key>
-		<string>..ImportedSources/GDrive/OAuth2</string>
+		<string>../../iosImportedSources/GDrive/OAuth2</string>
 		<key>2B5EDC8390B6F76F6100016964C3ABA298BFCFFF</key>
-		<string>..ImportedSources/LXReorderableCollectionViewFlowLayout</string>
+		<string>../../iosImportedSources/LXReorderableCollectionViewFlowLayout</string>
 		<key>3CF509C42B2F608C19CBF7B35F7A8AA417E84E3E</key>
-		<string>..</string>
+		<string>../../ios</string>
 		<key>633C4504C3ACEC0EB4FABC14FE9E5C6548FDEB47</key>
-		<string>..ImportedSources/OneDrive</string>
+		<string>../../iosImportedSources/OneDrive</string>
 		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
-		<string>..ImportedSources/CocoaHTTPServer</string>
+		<string>../../iosImportedSources/CocoaHTTPServer</string>
 		<key>A53B8F3E739B0A1A93B20BCC79FD4C75D0424DCF</key>
-		<string>..ImportedSources/WhiteRaccoon</string>
+		<string>../../iosImportedSources/WhiteRaccoon</string>
+		<key>BEA4886D7D5EBA7DE360D288117A7D8E7BA707C1</key>
+		<string>..</string>
 		<key>E2C3B3D4A084F704F085298FA14FC4A795C8DE08</key>
-		<string>..ImportedSources/MediaLibraryKit</string>
+		<string>../../iosImportedSources/MediaLibraryKit</string>
 	</dict>
 	<key>IDESourceControlProjectRepositoryRootDictionary</key>
 	<dict>
@@ -60,11 +64,11 @@
 		<string>http://gtm-oauth2.googlecode.com/svn</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>git://git.videolan.org/vlc-ports/ios.git</string>
+	<string>https://github.com/fx0883/Media-Player.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3CF509C42B2F608C19CBF7B35F7A8AA417E84E3E</string>
+	<string>BEA4886D7D5EBA7DE360D288117A7D8E7BA707C1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -98,6 +102,14 @@
 			<string>2B5EDC8390B6F76F6100016964C3ABA298BFCFFF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>LXReorderableCollectionViewFlowLayout</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BEA4886D7D5EBA7DE360D288117A7D8E7BA707C1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Media-Player</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
