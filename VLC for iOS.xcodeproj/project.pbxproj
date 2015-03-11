@@ -501,6 +501,9 @@
 		E0C04F951A25B4410080331A /* VLCDocumentPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C04F941A25B4410080331A /* VLCDocumentPickerController.m */; };
 		EA5645301AAB4B26009C5FB5 /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA56452F1AAB4B26009C5FB5 /* LiveSDK.framework */; };
 		EA5645321AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5645311AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a */; };
+		F2C35D201AB009CC0043CB89 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */; };
+		F2C35D211AB009CC0043CB89 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1D1AB009CC0043CB89 /* RDVTabBarController.m */; };
+		F2C35D221AB009CC0043CB89 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1F1AB009CC0043CB89 /* RDVTabBarItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1423,6 +1426,12 @@
 		E0C04F941A25B4410080331A /* VLCDocumentPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VLCDocumentPickerController.m; path = Sources/VLCDocumentPickerController.m; sourceTree = SOURCE_ROOT; };
 		EA56452F1AAB4B26009C5FB5 /* LiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LiveSDK.framework; path = "ImportedSources/OneDrive/src/build/Release-iphoneos/LiveSDK.framework"; sourceTree = "<group>"; };
 		EA5645311AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTLTouchStaticLib.a; path = "ImportedSources/GDrive/build/Release-iphoneos/libGTLTouchStaticLib.a"; sourceTree = "<group>"; };
+		F2C35D1A1AB009CC0043CB89 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
+		F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
+		F2C35D1C1AB009CC0043CB89 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
+		F2C35D1D1AB009CC0043CB89 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		F2C35D1E1AB009CC0043CB89 /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
+		F2C35D1F1AB009CC0043CB89 /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2151,6 +2160,7 @@
 		7D94FCD216DE7D1000F2623B = {
 			isa = PBXGroup;
 			children = (
+				F2C35D181AB009AA0043CB89 /* Customization */,
 				7D594CBC1A969E33004BFB17 /* MediaLibrary.xcdatamodeld */,
 				7D31719C19FEC91F0019357A /* VLC for iOS.entitlements */,
 				7DB638AA185BC0890003887C /* Images.xcassets */,
@@ -2688,6 +2698,27 @@
 			name = "Document Picker";
 			sourceTree = "<group>";
 		};
+		F2C35D181AB009AA0043CB89 /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				F2C35D191AB009CC0043CB89 /* RDVTabBarController */,
+			);
+			path = Customization;
+			sourceTree = "<group>";
+		};
+		F2C35D191AB009CC0043CB89 /* RDVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				F2C35D1A1AB009CC0043CB89 /* RDVTabBar.h */,
+				F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */,
+				F2C35D1C1AB009CC0043CB89 /* RDVTabBarController.h */,
+				F2C35D1D1AB009CC0043CB89 /* RDVTabBarController.m */,
+				F2C35D1E1AB009CC0043CB89 /* RDVTabBarItem.h */,
+				F2C35D1F1AB009CC0043CB89 /* RDVTabBarItem.m */,
+			);
+			path = RDVTabBarController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3211,8 +3242,10 @@
 				2915540717490A1E00B86CAD /* HTTPServer.m in Sources */,
 				2915540817490A1E00B86CAD /* MultipartFormDataParser.m in Sources */,
 				2915540917490A1E00B86CAD /* MultipartMessageHeader.m in Sources */,
+				F2C35D211AB009CC0043CB89 /* RDVTabBarController.m in Sources */,
 				2915540A17490A1E00B86CAD /* MultipartMessageHeaderField.m in Sources */,
 				2915542217490A9C00B86CAD /* GCDAsyncSocket.m in Sources */,
+				F2C35D221AB009CC0043CB89 /* RDVTabBarItem.m in Sources */,
 				7D9289751877459B009108FD /* VLCFirstStepsThirdPageViewController.m in Sources */,
 				2915542417490A9C00B86CAD /* DDAbstractDatabaseLogger.m in Sources */,
 				2915542517490A9C00B86CAD /* DDASLLogger.m in Sources */,
@@ -3297,6 +3330,7 @@
 				7D30F3E2183AB33200FFC021 /* VLCSidebarViewCell.m in Sources */,
 				7D30F3EA183AB34200FFC021 /* VLCGoogleDriveController.m in Sources */,
 				9B088308183D7BEC004B5C2A /* VLCCloudStorageTableViewController.m in Sources */,
+				F2C35D201AB009CC0043CB89 /* RDVTabBar.m in Sources */,
 				7D30F3EC183AB34200FFC021 /* VLCGoogleDriveTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
