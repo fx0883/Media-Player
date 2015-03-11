@@ -15,6 +15,7 @@
 		EA61981C1AAF39E400C8DB43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA61981B1AAF39E400C8DB43 /* Images.xcassets */; };
 		EA61981F1AAF39E400C8DB43 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA61981D1AAF39E400C8DB43 /* LaunchScreen.xib */; };
 		EA61982B1AAF39E400C8DB43 /* AnimTabbarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA61982A1AAF39E400C8DB43 /* AnimTabbarTests.m */; };
+		F26167FE1AAFD8C800D20FBD /* RAMItemAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F26167FD1AAFD8C800D20FBD /* RAMItemAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		EA6198241AAF39E400C8DB43 /* AnimTabbarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimTabbarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6198291AAF39E400C8DB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA61982A1AAF39E400C8DB43 /* AnimTabbarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimTabbarTests.m; sourceTree = "<group>"; };
+		F26167FC1AAFD8C800D20FBD /* RAMItemAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMItemAnimation.h; sourceTree = "<group>"; };
+		F26167FD1AAFD8C800D20FBD /* RAMItemAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMItemAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		EA61980A1AAF39E400C8DB43 /* AnimTabbar */ = {
 			isa = PBXGroup;
 			children = (
+				F26167FB1AAFD86600D20FBD /* AnimTabbar */,
 				EA61980F1AAF39E400C8DB43 /* AppDelegate.h */,
 				EA6198101AAF39E400C8DB43 /* AppDelegate.m */,
 				EA6198121AAF39E400C8DB43 /* FirstViewController.h */,
@@ -122,6 +126,15 @@
 				EA6198291AAF39E400C8DB43 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F26167FB1AAFD86600D20FBD /* AnimTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F26167FC1AAFD8C800D20FBD /* RAMItemAnimation.h */,
+				F26167FD1AAFD8C800D20FBD /* RAMItemAnimation.m */,
+			);
+			path = AnimTabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +241,7 @@
 				EA6198111AAF39E400C8DB43 /* AppDelegate.m in Sources */,
 				EA6198141AAF39E400C8DB43 /* FirstViewController.m in Sources */,
 				EA61980E1AAF39E400C8DB43 /* main.m in Sources */,
+				F26167FE1AAFD8C800D20FBD /* RAMItemAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +434,7 @@
 				EA6198301AAF39E400C8DB43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA6198311AAF39E400C8DB43 /* Build configuration list for PBXNativeTarget "AnimTabbarTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +443,7 @@
 				EA6198331AAF39E400C8DB43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
