@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VLCMigrationViewController : UIViewController
+@interface VLCMigrationViewController : UIViewController 
 
 @property(nonatomic) IBOutlet UILabel *statusLabel;
 @property(nonatomic) IBOutlet UIActivityIndicatorView *spinner;
