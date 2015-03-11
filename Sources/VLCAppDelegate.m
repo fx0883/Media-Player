@@ -32,6 +32,8 @@
 #import "VLCAlertView.h"
 #import <BoxSDK/BoxSDK.h>
 
+#import "RDVTabBarController.h"
+
 @interface VLCAppDelegate () <PAPasscodeViewControllerDelegate, VLCMediaFileDiscovererDelegate, BWQuincyManagerDelegate> {
     PAPasscodeViewController *_passcodeLockController;
     VLCDownloadViewController *_downloadViewController;
@@ -41,6 +43,8 @@
     VLCMovieViewController *_movieViewController;
     BOOL _passcodeValidated;
     BOOL _isRunningMigration;
+    
+    RDVTabBarController     *_tabBarController;
 }
 
 @end
@@ -96,14 +100,30 @@
         [[MLMediaLibrary sharedMediaLibrary] applicationWillStart];
 
         _playlistViewController = [[VLCPlaylistViewController alloc] init];
+         
         UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:_playlistViewController];
         [navCon loadTheme];
+         
+         ///
+         UIViewController *secondVC = [UIViewController new];
+         secondVC.view.backgroundColor = [UIColor blueColor];
+         
+         UIViewController *thirdVC = [UIViewController new];
+         thirdVC.view.backgroundColor = [UIColor redColor];
+         
+         
+         _tabBarController = [RDVTabBarController new];
+         [_tabBarController setViewControllers:@[navCon
+                                                 , [[UINavigationController alloc] initWithRootViewController:secondVC]
+          , [[UINavigationController alloc] initWithRootViewController:thirdVC]
+                                                 ]];
+         
 
         _revealController = [[GHRevealViewController alloc] initWithNibName:nil bundle:nil];
         _revealController.wantsFullScreenLayout = YES;
         _menuViewController = [[VLCMenuTableViewController alloc] initWithNibName:nil bundle:nil];
         _revealController.sidebarViewController = _menuViewController;
-        _revealController.contentViewController = navCon;
+         _revealController.contentViewController = _tabBarController; //navCon;
 
         self.window.rootViewController = self.revealController;
         // necessary to avoid navbar blinking in VLCOpenNetworkStreamViewController & VLCDownloadViewController
