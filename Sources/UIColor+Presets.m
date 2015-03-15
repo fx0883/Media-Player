@@ -16,7 +16,7 @@
 
 + (UIColor *)VLCDarkBackgroundColor
 {
-    return [UIColor colorWithWhite:.122 alpha:1.];
+    return [UIColor colorWithWhite:1 alpha:1];
 }
 
 + (UIColor *)VLCLightTextColor
@@ -31,7 +31,7 @@
 
 + (UIColor *)VLCOrangeTintColor
 {
-    return [UIColor colorWithRed:1.0f green:(132.0f/255.0f) blue:0.0f alpha:1.f];
+    return [UIColor colorWithRed:(32/255.0) green:(106/255.0f) blue:(222/255.0) alpha:1.f];
 }
 
 @end

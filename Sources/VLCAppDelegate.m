@@ -33,6 +33,7 @@
 #import <BoxSDK/BoxSDK.h>
 
 #import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
 
 @interface VLCAppDelegate () <PAPasscodeViewControllerDelegate, VLCMediaFileDiscovererDelegate, BWQuincyManagerDelegate> {
     PAPasscodeViewController *_passcodeLockController;
@@ -82,11 +83,11 @@
 
     [[UISwitch appearance] setOnTintColor:[UIColor VLCOrangeTintColor]];
 
-    BWQuincyManager *quincyManager = [BWQuincyManager sharedQuincyManager];
-    [quincyManager setSubmissionURL:@"http://crash.videolan.org/crash_v200.php"];
-    [quincyManager setDelegate:self];
-    [quincyManager setShowAlwaysButton:YES];
-    [quincyManager startManager];
+//    BWQuincyManager *quincyManager = [BWQuincyManager sharedQuincyManager];
+//    [quincyManager setSubmissionURL:@"http://crash.videolan.org/crash_v200.php"];
+//    [quincyManager setDelegate:self];
+//    [quincyManager setShowAlwaysButton:YES];
+//    [quincyManager startManager];
 
     /* clean caches on launch (since those are used for wifi upload only) */
     [self cleanCache];
@@ -117,6 +118,7 @@
                                                  , [[UINavigationController alloc] initWithRootViewController:secondVC]
           , [[UINavigationController alloc] initWithRootViewController:thirdVC]
                                                  ]];
+         [self customizeTabBarForController:_tabBarController];
          
 
         _revealController = [[GHRevealViewController alloc] initWithNibName:nil bundle:nil];
@@ -162,6 +164,24 @@
         setupBlock();
     }
     return YES;
+}
+
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
+    UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
+    NSArray *tabBarItemImages = @[@"tab_tv_media", @"tab_cloud_down", @"tab_settings"];
+    
+    NSInteger index = 0;
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@",
+                                                      [tabBarItemImages objectAtIndex:index]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@",
+                                                        [tabBarItemImages objectAtIndex:index]]];
+        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
+        
+        index++;
+    }
 }
 
 - (BOOL)migrationNeeded:(NSError **) migrationCheckError {

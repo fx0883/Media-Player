@@ -34,13 +34,11 @@
 
 + (VLCPlaylistTableViewCell *)cellWithReuseIdentifier:(NSString *)ident
 {
-    NSArray *nibContentArray;
-    if (SYSTEM_RUNS_IOS7_OR_LATER)
-        nibContentArray = [[NSBundle mainBundle] loadNibNamed:@"VLCFuturePlaylistTableViewCell" owner:nil options:nil];
-    else
-        nibContentArray = [[NSBundle mainBundle] loadNibNamed:@"VLCPlaylistTableViewCell" owner:nil options:nil];
+    NSArray *nibContentArray = [[NSBundle mainBundle] loadNibNamed:@"VLCFuturePlaylistTableViewCell" owner:nil options:nil];
+    
     NSAssert([nibContentArray count] == 1, @"meh");
     NSAssert([[nibContentArray lastObject] isKindOfClass:[VLCPlaylistTableViewCell class]], @"meh meh");
+    
     VLCPlaylistTableViewCell *cell = (VLCPlaylistTableViewCell *)[nibContentArray lastObject];
     cell.multipleSelectionBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.metaDataLabel.hidden = YES;
@@ -142,15 +140,13 @@
     [super setEditing:editing animated:animated];
     [self _updatedDisplayedInformationForKeyPath:@"editing"];
 
-    if (SYSTEM_RUNS_IOS7_OR_LATER) {
-        if (editing) {
-            if (_longPress)
-                [self removeGestureRecognizer:_longPress];
-        } else {
-            if (!_longPress)
-                _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTouchGestureAction:)];
-            [self addGestureRecognizer:_longPress];
-        }
+    if (editing) {
+        if (_longPress)
+            [self removeGestureRecognizer:_longPress];
+    } else {
+        if (!_longPress)
+            _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTouchGestureAction:)];
+        [self addGestureRecognizer:_longPress];
     }
 }
 

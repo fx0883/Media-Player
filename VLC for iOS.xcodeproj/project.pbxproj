@@ -3658,7 +3658,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Sources/VLC for iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",
@@ -3715,7 +3715,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Sources/VLC for iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",
@@ -3798,7 +3798,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Sources/VLC for iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",

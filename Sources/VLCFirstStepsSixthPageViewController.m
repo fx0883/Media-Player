@@ -32,7 +32,7 @@
 
 - (NSString *)pageTitle
 {
-    return @"VLC";
+    return @"Media Player Pro";
 }
 
 - (NSUInteger)page
