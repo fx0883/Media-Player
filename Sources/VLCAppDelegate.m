@@ -122,7 +122,7 @@
          
 
         _revealController = [[GHRevealViewController alloc] initWithNibName:nil bundle:nil];
-        _revealController.wantsFullScreenLayout = YES;
+        //_revealController.wantsFullScreenLayout = YES;
         _menuViewController = [[VLCMenuTableViewController alloc] initWithNibName:nil bundle:nil];
         _revealController.sidebarViewController = _menuViewController;
          _revealController.contentViewController = _tabBarController; //navCon;

@@ -501,6 +501,7 @@
 		E0C04F951A25B4410080331A /* VLCDocumentPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C04F941A25B4410080331A /* VLCDocumentPickerController.m */; };
 		EA5645301AAB4B26009C5FB5 /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA56452F1AAB4B26009C5FB5 /* LiveSDK.framework */; };
 		EA5645321AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5645311AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a */; };
+		EA6B630C1AB58FFB0059B225 /* PSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6B630B1AB58FFB0059B225 /* PSBaseViewController.m */; };
 		F2C35D201AB009CC0043CB89 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */; };
 		F2C35D211AB009CC0043CB89 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1D1AB009CC0043CB89 /* RDVTabBarController.m */; };
 		F2C35D221AB009CC0043CB89 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1F1AB009CC0043CB89 /* RDVTabBarItem.m */; };
@@ -1426,6 +1427,8 @@
 		E0C04F941A25B4410080331A /* VLCDocumentPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VLCDocumentPickerController.m; path = Sources/VLCDocumentPickerController.m; sourceTree = SOURCE_ROOT; };
 		EA56452F1AAB4B26009C5FB5 /* LiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LiveSDK.framework; path = "ImportedSources/OneDrive/src/build/Release-iphoneos/LiveSDK.framework"; sourceTree = "<group>"; };
 		EA5645311AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTLTouchStaticLib.a; path = "ImportedSources/GDrive/build/Release-iphoneos/libGTLTouchStaticLib.a"; sourceTree = "<group>"; };
+		EA6B630A1AB58FFB0059B225 /* PSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseViewController.h; sourceTree = "<group>"; };
+		EA6B630B1AB58FFB0059B225 /* PSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseViewController.m; sourceTree = "<group>"; };
 		F2C35D1A1AB009CC0043CB89 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
 		F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
 		F2C35D1C1AB009CC0043CB89 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
@@ -2701,6 +2704,8 @@
 		F2C35D181AB009AA0043CB89 /* Customization */ = {
 			isa = PBXGroup;
 			children = (
+				EA6B630A1AB58FFB0059B225 /* PSBaseViewController.h */,
+				EA6B630B1AB58FFB0059B225 /* PSBaseViewController.m */,
 				F2C35D191AB009CC0043CB89 /* RDVTabBarController */,
 			);
 			path = Customization;
@@ -3257,6 +3262,7 @@
 				2915542A17490A9C00B86CAD /* DispatchQueueLogFormatter.m in Sources */,
 				7DC19B051868D1C400810BF7 /* VLCFirstStepsFifthPageViewController.m in Sources */,
 				2915543B17490B9C00B86CAD /* HTTPAsyncFileResponse.m in Sources */,
+				EA6B630C1AB58FFB0059B225 /* PSBaseViewController.m in Sources */,
 				2915543C17490B9C00B86CAD /* HTTPDataResponse.m in Sources */,
 				2915543D17490B9C00B86CAD /* HTTPDynamicFileResponse.m in Sources */,
 				9BADAF45185FBD9D00108BD8 /* VLCFrostedGlasView.m in Sources */,

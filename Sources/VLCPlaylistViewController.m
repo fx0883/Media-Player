@@ -123,10 +123,9 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
             _collectionView.backgroundColor = [UIColor VLCDarkBackgroundColor];
             _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(_collectionViewHandleLongPressGesture:)];
             [_collectionView addGestureRecognizer:_longPressGestureRecognizer];
-            if (SYSTEM_RUNS_IOS7_OR_LATER)
-                [_collectionView registerNib:[UINib nibWithNibName:@"VLCFuturePlaylistCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PlaylistCell"];
-            else
-                [_collectionView registerNib:[UINib nibWithNibName:@"VLCPlaylistCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PlaylistCell"];
+            
+            [_collectionView registerNib:[UINib nibWithNibName:@"VLCFuturePlaylistCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"PlaylistCell"];
+            
             self.view.backgroundColor = [UIColor VLCDarkBackgroundColor];
         }
         self.view = _collectionView;
@@ -558,6 +557,7 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
         cell = [VLCPlaylistTableViewCell cellWithReuseIdentifier:CellIdentifier];
     else
         [cell collapsWithAnimation:NO];
+    
 
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightOnTableViewCellGestureAction:)];
     [swipeRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
@@ -588,11 +588,11 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
     return inFolder;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.backgroundColor = (indexPath.row % 2 == 0)? [UIColor blackColor]: [UIColor VLCDarkBackgroundColor];
-    cell.multipleSelectionBackgroundView.backgroundColor = cell.backgroundColor;
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    cell.backgroundColor = (indexPath.row % 2 == 0)? [UIColor blackColor]: [UIColor VLCDarkBackgroundColor];
+//    cell.multipleSelectionBackgroundView.backgroundColor = cell.backgroundColor;
+//}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -1397,33 +1397,33 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
     [self updateViewContents];
 }
 
-#pragma mark - autorotation
-
-// RootController is responsible for supporting interface orientation(iOS6.0+), i.e. navigation controller
-// so this will not work as intended without "voodoo magic"(UINavigationController category, subclassing, etc)
-/* introduced in iOS 6 */
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return UIInterfaceOrientationMaskAll;
-
-    return (_foundMedia.count > 0)? UIInterfaceOrientationMaskAllButUpsideDown:
-    UIInterfaceOrientationMaskPortrait;
-}
-
-/* introduced in iOS 6 */
-- (BOOL)shouldAutorotate
-{
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) || (_foundMedia.count > 0);
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-
-    if (!_usingTableViewToShowData)
-        [self.collectionView.collectionViewLayout invalidateLayout];
-}
+//#pragma mark - autorotation
+//
+//// RootController is responsible for supporting interface orientation(iOS6.0+), i.e. navigation controller
+//// so this will not work as intended without "voodoo magic"(UINavigationController category, subclassing, etc)
+///* introduced in iOS 6 */
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//        return UIInterfaceOrientationMaskAll;
+//
+//    return (_foundMedia.count > 0)? UIInterfaceOrientationMaskAllButUpsideDown:
+//    UIInterfaceOrientationMaskPortrait;
+//}
+//
+///* introduced in iOS 6 */
+//- (BOOL)shouldAutorotate
+//{
+//    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) || (_foundMedia.count > 0);
+//}
+//
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//
+//    if (!_usingTableViewToShowData)
+//        [self.collectionView.collectionViewLayout invalidateLayout];
+//}
 
 #pragma mark - Search Display Controller Delegate
 

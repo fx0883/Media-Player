@@ -25,7 +25,7 @@ typedef enum {
 @class EmptyLibraryView;
 
 #warning MARK:首页播放列表
-@interface VLCPlaylistViewController : UIViewController <UITabBarDelegate, UIPopoverControllerDelegate>
+@interface VLCPlaylistViewController : PSBaseViewController <UITabBarDelegate, UIPopoverControllerDelegate>
 
 @property (nonatomic, strong) UIViewController *menuViewController;
 

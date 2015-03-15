@@ -120,12 +120,28 @@ const CGFloat kGHRevealSidebarFlickVelocity = 1000.0f;
     return self;
 }
 
-#pragma mark UIViewController
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
-	return (orientation == UIInterfaceOrientationPortraitUpsideDown)
-		? (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-		: YES;
+//#pragma mark UIViewController
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
+//	return (orientation == UIInterfaceOrientationPortraitUpsideDown)
+//		? (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//		: YES;
+//}
+
+-(BOOL)shouldAutorotate
+{
+    return NO;
 }
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
 
 #pragma mark Public Methods
 - (void)dragContentView:(UIPanGestureRecognizer *)panGesture {
