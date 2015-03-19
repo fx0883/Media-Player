@@ -96,7 +96,7 @@
     if (SYSTEM_RUNS_IOS7_OR_LATER) {
         navigationBar.barTintColor = [UIColor VLCOrangeTintColor];
         navigationBar.tintColor = [UIColor whiteColor];
-        navigationBar.titleTextAttributes = @{ UITextAttributeTextColor : [UIColor whiteColor] };
+        navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
     } else {
         [navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarBackground"] forBarMetrics:UIBarMetricsDefault];
         navigationBar.translucent = NO;

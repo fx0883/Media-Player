@@ -25,7 +25,7 @@
     } else {
         navBar.barTintColor = [UIColor VLCOrangeTintColor];
         navBar.tintColor = [UIColor whiteColor];
-        navBar.titleTextAttributes = @{ UITextAttributeTextColor : [UIColor whiteColor] };
+        navBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
     }
 }
 @end

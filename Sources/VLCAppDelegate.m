@@ -34,6 +34,8 @@
 
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
+#import "VLCSettingsController.h"
+#import "IASKAppSettingsViewController.h"
 
 @interface VLCAppDelegate () <PAPasscodeViewControllerDelegate, VLCMediaFileDiscovererDelegate, BWQuincyManagerDelegate> {
     PAPasscodeViewController *_passcodeLockController;
@@ -47,6 +49,9 @@
     
     RDVTabBarController     *_tabBarController;
 }
+
+@property (strong, nonatomic) IASKAppSettingsViewController *settingsViewController;
+@property (strong, nonatomic) VLCSettingsController         *settingsController;
 
 @end
 
@@ -100,24 +105,34 @@
      void (^setupBlock)() = ^ {
         [[MLMediaLibrary sharedMediaLibrary] applicationWillStart];
 
+         ///
         _playlistViewController = [[VLCPlaylistViewController alloc] init];
-         
-        UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:_playlistViewController];
-        [navCon loadTheme];
          
          ///
          UIViewController *secondVC = [UIViewController new];
          secondVC.view.backgroundColor = [UIColor blueColor];
          
-         UIViewController *thirdVC = [UIViewController new];
-         thirdVC.view.backgroundColor = [UIColor redColor];
+         ///
+         self.settingsController = [VLCSettingsController new];
+         self.settingsViewController = [[IASKAppSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+         self.settingsController.viewController = self.settingsViewController;
          
+         self.settingsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+         self.settingsViewController.delegate = self.settingsController;
+         self.settingsViewController.showDoneButton = NO;
+         self.settingsViewController.showCreditsFooter = NO;
+         
+         ///
+         UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:_playlistViewController];
+         UINavigationController *navCon1 = [[UINavigationController alloc] initWithRootViewController:secondVC];
+         UINavigationController *navCon2 = [[UINavigationController alloc] initWithRootViewController:self.settingsViewController];
+         
+         [navCon loadTheme];
+         [navCon1 loadTheme];
+         [navCon2 loadTheme];
          
          _tabBarController = [RDVTabBarController new];
-         [_tabBarController setViewControllers:@[navCon
-                                                 , [[UINavigationController alloc] initWithRootViewController:secondVC]
-          , [[UINavigationController alloc] initWithRootViewController:thirdVC]
-                                                 ]];
+         [_tabBarController setViewControllers:@[navCon, navCon1, navCon2]];
          [self customizeTabBarForController:_tabBarController];
          
 
