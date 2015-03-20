@@ -36,6 +36,7 @@
 #import "RDVTabBarItem.h"
 #import "VLCSettingsController.h"
 #import "IASKAppSettingsViewController.h"
+#import "PSNetworkVC.h"
 
 @interface VLCAppDelegate () <PAPasscodeViewControllerDelegate, VLCMediaFileDiscovererDelegate, BWQuincyManagerDelegate> {
     PAPasscodeViewController *_passcodeLockController;
@@ -105,14 +106,14 @@
      void (^setupBlock)() = ^ {
         [[MLMediaLibrary sharedMediaLibrary] applicationWillStart];
 
-         ///
+         /// 1
         _playlistViewController = [[VLCPlaylistViewController alloc] init];
          
-         ///
-         UIViewController *secondVC = [UIViewController new];
+         /// 2
+         PSNetworkVC *secondVC = [PSNetworkVC new];
          secondVC.view.backgroundColor = [UIColor blueColor];
          
-         ///
+         /// 3
          self.settingsController = [VLCSettingsController new];
          self.settingsViewController = [[IASKAppSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
          self.settingsController.viewController = self.settingsViewController;
