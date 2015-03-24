@@ -502,6 +502,7 @@
 		EA5645301AAB4B26009C5FB5 /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA56452F1AAB4B26009C5FB5 /* LiveSDK.framework */; };
 		EA5645321AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5645311AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a */; };
 		EA6B630C1AB58FFB0059B225 /* PSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6B630B1AB58FFB0059B225 /* PSBaseViewController.m */; };
+		EA79B3DC1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA79B3DB1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.m */; };
 		EA8029DB1ABC6618006437B4 /* PSNetworkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8029DA1ABC6618006437B4 /* PSNetworkVC.m */; };
 		EA8029F41ABC678A006437B4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8029DE1ABC678A006437B4 /* MASCompositeConstraint.m */; };
 		EA8029F51ABC678A006437B4 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8029E11ABC678A006437B4 /* MASConstraint.m */; };
@@ -1439,6 +1440,8 @@
 		EA5645311AAB4BB5009C5FB5 /* libGTLTouchStaticLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGTLTouchStaticLib.a; path = "ImportedSources/GDrive/build/Release-iphoneos/libGTLTouchStaticLib.a"; sourceTree = "<group>"; };
 		EA6B630A1AB58FFB0059B225 /* PSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseViewController.h; sourceTree = "<group>"; };
 		EA6B630B1AB58FFB0059B225 /* PSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseViewController.m; sourceTree = "<group>"; };
+		EA79B3DA1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetworkOptionCollectionCell.h; sourceTree = "<group>"; };
+		EA79B3DB1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetworkOptionCollectionCell.m; sourceTree = "<group>"; };
 		EA8029D91ABC6618006437B4 /* PSNetworkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNetworkVC.h; sourceTree = "<group>"; };
 		EA8029DA1ABC6618006437B4 /* PSNetworkVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNetworkVC.m; sourceTree = "<group>"; };
 		EA8029DD1ABC678A006437B4 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -2775,6 +2778,8 @@
 				F2C35D191AB009CC0043CB89 /* RDVTabBarController */,
 				EA8029D91ABC6618006437B4 /* PSNetworkVC.h */,
 				EA8029DA1ABC6618006437B4 /* PSNetworkVC.m */,
+				EA79B3DA1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.h */,
+				EA79B3DB1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.m */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -3311,6 +3316,7 @@
 				2915540217490A1E00B86CAD /* DDNumber.m in Sources */,
 				7D92897A1877467E009108FD /* VLCFirstStepsFourthPageViewController.m in Sources */,
 				2915540317490A1E00B86CAD /* DDRange.m in Sources */,
+				EA79B3DC1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.m in Sources */,
 				4171D35818A2D90200A16EF9 /* LXReorderableCollectionViewFlowLayout.m in Sources */,
 				2915540417490A1E00B86CAD /* HTTPAuthenticationRequest.m in Sources */,
 				EA8029DB1ABC6618006437B4 /* PSNetworkVC.m in Sources */,
