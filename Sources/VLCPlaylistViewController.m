@@ -150,23 +150,23 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    // MARK: Setup Navigation bar stuff
     self.title = NSLocalizedString(@"LIBRARY_ALL_FILES", nil);
     _menuButton = [UIBarButtonItem themedRevealMenuButtonWithTarget:self andSelector:@selector(leftButtonAction:)];
     self.navigationItem.leftBarButtonItem = _menuButton;
 
-    if (SYSTEM_RUNS_IOS7_OR_LATER)
-        self.editButtonItem.tintColor = [UIColor whiteColor];
-    else {
-        [self.editButtonItem setBackgroundImage:[UIImage imageNamed:@"button"]
-                                       forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [self.editButtonItem setBackgroundImage:[UIImage imageNamed:@"buttonHighlight"]
-                                       forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    }
+    self.editButtonItem.tintColor = [UIColor whiteColor];
 
+    // MARK: Setup empty library view
     _emptyLibraryView.emptyLibraryLabel.text = NSLocalizedString(@"EMPTY_LIBRARY", nil);
     _emptyLibraryView.emptyLibraryLongDescriptionLabel.text = NSLocalizedString(@"EMPTY_LIBRARY_LONG", nil);
     [_emptyLibraryView.emptyLibraryLongDescriptionLabel sizeToFit];
     [_emptyLibraryView.learnMoreButton setTitle:NSLocalizedString(@"BUTTON_LEARN_MORE", nil) forState:UIControlStateNormal];
+    
+    // MARK: Setup navigation tool bar
     UIBarButtonItem *createFolderItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(createFolder)];
 
     // Better visual alignment with the action button
@@ -189,37 +189,36 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
 
     [self setToolbarItems:@[_actionBarButtonItem, fixedSpace, createFolderItem, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], [UIBarButtonItem themedDarkToolbarButtonWithTitle:NSLocalizedString(@"BUTTON_RENAME", nil) target:self andSelector:@selector(renameSelection)], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteSelection)]]];
     self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+    self.navigationController.toolbar.tintColor = [UIColor whiteColor];
+    
 
-    if (SYSTEM_RUNS_IOS7_OR_LATER) {
-        self.navigationController.toolbar.tintColor = [UIColor whiteColor];
-        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    } else
-        [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"bottomBlackBar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-
-    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    // MARK: Search bar & display controller
     UINavigationBar *navBar = self.navigationController.navigationBar;
-    if (SYSTEM_RUNS_IOS7_OR_LATER) {
-        _searchBar.barTintColor = navBar.barTintColor;
-        // cancel button tint color of UISearchBar with white color
-        [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
-    }
+    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    _searchBar.barTintColor = navBar.barTintColor;
     _searchBar.tintColor = navBar.tintColor;
     _searchBar.translucent = navBar.translucent;
     _searchBar.opaque = navBar.opaque;
+    _searchBar.delegate = self;
+    _searchBar.hidden = YES;
+    
+    // cancel button tint color of UISearchBar with white color
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    
     _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
     _searchDisplayController.delegate = self;
     _searchDisplayController.searchResultsDataSource = self;
     _searchDisplayController.searchResultsDelegate = self;
     _searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _searchDisplayController.searchResultsTableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    _searchBar.delegate = self;
-    _searchBar.hidden = YES;
+    
+    _searchData = [[NSMutableArray alloc] init];
 
+    
+    // MARK: double tap gesture
     UITapGestureRecognizer *tapTwiceGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(tapTwiceGestureAction:)];
     [tapTwiceGesture setNumberOfTapsRequired:2];
     [self.navigationController.navigationBar addGestureRecognizer:tapTwiceGesture];
-
-    _searchData = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -233,6 +232,7 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
 {
     [super viewDidAppear:animated];
 
+    // MARK: Show 'Learn More' page if not
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![[defaults objectForKey:kDisplayedFirstSteps] boolValue]) {
         [self.emptyLibraryView performSelector:@selector(learnMore:) withObject:nil afterDelay:1.];
@@ -240,6 +240,7 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
         [defaults synchronize];
     }
 
+    // MARK: Upgrade media library if needed
     if ([[MLMediaLibrary sharedMediaLibrary] libraryNeedsUpgrade]) {
         self.navigationItem.rightBarButtonItem = nil;
         self.navigationItem.leftBarButtonItem = nil;
@@ -255,8 +256,11 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
         return;
     }
 
-    if (_foundMedia.count < 1)
+    // MARK: Update content if no media found
+    if (_foundMedia.count < 1) {
         [self updateViewContents];
+    }
+    
     [[MLMediaLibrary sharedMediaLibrary] performSelector:@selector(libraryDidAppear) withObject:nil afterDelay:1.];
 }
 
@@ -265,6 +269,8 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
     [super viewDidDisappear:animated];
     [[MLMediaLibrary sharedMediaLibrary] libraryDidDisappear];
 }
+
+#pragma mark - Motion
 
 - (BOOL)canBecomeFirstResponder
 {
@@ -277,53 +283,80 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
         [[VLCBugreporter sharedInstance] handleBugreportRequest];
 }
 
-- (void)openMediaObject:(NSManagedObject *)mediaObject
-{
+- (void)openMediaObject:(NSManagedObject *)mediaObject {
+    
+    // MARK: If media object is an music album
     if ([mediaObject isKindOfClass:[MLAlbum class]]) {
+        
         _foundMedia = [NSMutableArray arrayWithArray:[(MLAlbum *)mediaObject sortedTracks]];
+        
         self.navigationItem.leftBarButtonItem = [UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(backToAllItems:)];
-        if (_libraryMode == VLCLibraryModeAllFiles)
+        
+        if (_libraryMode == VLCLibraryModeAllFiles) {
             self.navigationItem.leftBarButtonItem.title = NSLocalizedString(@"BUTTON_BACK", nil);
-        else
+        } else {
             [self.navigationItem.leftBarButtonItem setTitle:NSLocalizedString(@"LIBRARY_MUSIC", nil)];
+        }
+        
         self.title = [(MLAlbum*)mediaObject name];
+        
         [self reloadViews];
+       
+    // MARK: If media object is a video show
     } else if ([mediaObject isKindOfClass:[MLShow class]]) {
+        
         _foundMedia = [NSMutableArray arrayWithArray:[(MLShow *)mediaObject sortedEpisodes]];
+        
         self.navigationItem.leftBarButtonItem = [UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(backToAllItems:)];
-        if (_libraryMode == VLCLibraryModeAllFiles)
+        
+        if (_libraryMode == VLCLibraryModeAllFiles) {
             self.navigationItem.leftBarButtonItem.title = NSLocalizedString(@"BUTTON_BACK", nil);
-        else
+        } else {
             [self.navigationItem.leftBarButtonItem setTitle:NSLocalizedString(@"LIBRARY_SERIES", nil)];
+        }
+        
         self.title = [(MLShow*)mediaObject name];
+        
         [self reloadViews];
+        
+    // MARK: If media object is a label, which means it's a folder
     } else if ([mediaObject isKindOfClass:[MLLabel class]]) {
+        
         MLLabel *folder = (MLLabel*) mediaObject;
         inFolder = YES;
+        
         if (!_usingTableViewToShowData) {
             if (![self.collectionView.collectionViewLayout isEqual:_reorderLayout]) {
                 for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
-                    if (recognizer == _folderLayout.panGestureRecognizer || recognizer == _folderLayout.longPressGestureRecognizer || recognizer == _longPressGestureRecognizer)
+                    if (recognizer == _folderLayout.panGestureRecognizer
+                        || recognizer == _folderLayout.longPressGestureRecognizer
+                        || recognizer == _longPressGestureRecognizer)
                         [self.collectionView removeGestureRecognizer:recognizer];
                 }
                 _reorderLayout = [[LXReorderableCollectionViewFlowLayout alloc] init];
                 [self.collectionView setCollectionViewLayout:_reorderLayout animated:NO];
             }
         }
+        
         _foundMedia = [NSMutableArray arrayWithArray:[folder sortedFolderItems]];
+        
         self.navigationItem.leftBarButtonItem = [UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(backToAllItems:)];
         self.navigationItem.leftBarButtonItem.title = NSLocalizedString(@"BUTTON_BACK", nil);
         self.title = [folder name];
 
         UIBarButtonItem *removeFromFolder = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(removeFromFolder)];
+        
         NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
         toolbarItems[2] = removeFromFolder;
         self.toolbarItems = toolbarItems;
 
         [self reloadViews];
-        return;
-    } else
+        
+    // MARK: Otherwise it's a file/track/episode, so open the media with Movie View Controller
+    } else {
+        
         [(VLCAppDelegate*)[UIApplication sharedApplication].delegate openMediaFromManagedObject:mediaObject];
+    }
 }
 
 - (void)removeMediaObject:(id)managedObject updateDatabase:(BOOL)updateDB

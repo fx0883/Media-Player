@@ -42,16 +42,9 @@
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:target
                                                                   action:selector];
-    if (SYSTEM_RUNS_IOS7_OR_LATER)
-        backButton.tintColor = [UIColor whiteColor];
-    else {
-        [backButton setBackgroundImage:[[UIImage imageNamed:@"backButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 6)]
-                              forState:UIControlStateNormal
-                            barMetrics:UIBarMetricsDefault];
-        [backButton setBackgroundImage:[[UIImage imageNamed:@"backButtonHighlight"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 6)]
-                              forState:UIControlStateHighlighted
-                            barMetrics:UIBarMetricsDefault];
-    }
+    
+    backButton.tintColor = [UIColor whiteColor];
+    
     [backButton setTitleTextAttributes:@{UITextAttributeTextShadowColor : [UIColor colorWithWhite:0. alpha:.37], UITextAttributeTextColor : [UIColor whiteColor]} forState:UIControlStateNormal];
     [backButton setTitlePositionAdjustment:UIOffsetMake(3, 0) forBarMetrics:UIBarMetricsDefault];
     return backButton;

@@ -528,15 +528,18 @@
 
 - (void)openMediaFromManagedObject:(NSManagedObject *)mediaObject
 {
-    if (!_movieViewController)
+    if (!_movieViewController) {
         _movieViewController = [[VLCMovieViewController alloc] initWithNibName:nil bundle:nil];
+    }
 
-    if ([mediaObject isKindOfClass:[MLFile class]])
+    if ([mediaObject isKindOfClass:[MLFile class]]) {
         _movieViewController.fileFromMediaLibrary = (MLFile *)mediaObject;
-    else if ([mediaObject isKindOfClass:[MLAlbumTrack class]])
+    } else if ([mediaObject isKindOfClass:[MLAlbumTrack class]]) {
         _movieViewController.fileFromMediaLibrary = [(MLAlbumTrack*)mediaObject files].anyObject;
-    else if ([mediaObject isKindOfClass:[MLShowEpisode class]])
+    } else if ([mediaObject isKindOfClass:[MLShowEpisode class]]) {
         _movieViewController.fileFromMediaLibrary = [(MLShowEpisode*)mediaObject files].anyObject;
+    }
+    
     [(MLFile *)_movieViewController.fileFromMediaLibrary setUnread:@(NO)];
 
     UINavigationController *navCon = [[VLCPlaybackNavigationController alloc] initWithRootViewController:_movieViewController];
