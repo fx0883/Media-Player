@@ -519,12 +519,13 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
     _foundMedia = [[NSMutableArray alloc] init];
 
     self.navigationItem.leftBarButtonItem = _menuButton;
-    if (_libraryMode == VLCLibraryModeAllAlbums)
+    if (_libraryMode == VLCLibraryModeAllAlbums) {
         self.title = NSLocalizedString(@"LIBRARY_MUSIC", nil);
-    else if( _libraryMode == VLCLibraryModeAllSeries)
+    } else if( _libraryMode == VLCLibraryModeAllSeries) {
         self.title = NSLocalizedString(@"LIBRARY_SERIES", nil);
-    else
+    } else {
         self.title = NSLocalizedString(@"LIBRARY_ALL_FILES", nil);
+    }
 
     /* add all albums */
     if (_libraryMode != VLCLibraryModeAllSeries) {
@@ -534,6 +535,7 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
                 [_foundMedia addObject:album];
         }
     }
+    
     if (_libraryMode == VLCLibraryModeAllAlbums) {
         [self reloadViews];
         return;
@@ -545,6 +547,7 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
         if (show.name.length > 0 && show.episodes.count > 1)
             [_foundMedia addObject:show];
     }
+    
     if (_libraryMode == VLCLibraryModeAllSeries) {
         [self reloadViews];
         return;
@@ -552,8 +555,9 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
 
     /* add all folders*/
     NSArray *allFolders = [MLLabel allLabels];
-    for (MLLabel *folder in allFolders)
+    for (MLLabel *folder in allFolders) {
         [_foundMedia addObject:folder];
+    }
 
     /* add all remaining files */
     NSArray *allFiles = [MLFile allFiles];
