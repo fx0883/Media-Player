@@ -361,8 +361,9 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
 
 - (void)removeMediaObject:(id)managedObject updateDatabase:(BOOL)updateDB
 {
-        // delete all tracks from an album
+        // MARK: delete all tracks from an album
     if ([managedObject isKindOfClass:[MLAlbum class]]) {
+        
         MLAlbum *album = managedObject;
         NSSet *iterAlbumTrack = [NSSet setWithSet:album.tracks];
 
@@ -372,8 +373,10 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
             for (MLFile *file in iterFiles)
                 [self _deleteMediaObject:file];
         }
-        // delete all episodes from a show
+        
+        // MARK: delete all episodes from a show
     } else if ([managedObject isKindOfClass:[MLShow class]]) {
+        
         MLShow *show = managedObject;
         NSSet *iterShowEpisodes = [NSSet setWithSet:show.episodes];
 
@@ -383,31 +386,46 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
             for (MLFile *file in iterFiles)
                 [self _deleteMediaObject:file];
         }
-        // delete all files from an episode
+        
+        // MARK: delete all files from an episode
     } else if ([managedObject isKindOfClass:[MLShowEpisode class]]) {
+        
         MLShowEpisode *episode = managedObject;
         NSSet *iterFiles = [NSSet setWithSet:episode.files];
 
-        for (MLFile *file in iterFiles)
+        for (MLFile *file in iterFiles) {
             [self _deleteMediaObject:file];
-        // delete all files from a track
+        }
+        
+        // MARK: delete all files from a track
     } else if ([managedObject isKindOfClass:[MLAlbumTrack class]]) {
+        
         MLAlbumTrack *track = managedObject;
         NSSet *iterFiles = [NSSet setWithSet:track.files];
 
-        for (MLFile *file in iterFiles)
+        for (MLFile *file in iterFiles) {
             [self _deleteMediaObject:file];
+        }
+    
+    // MARK: delete all files from a folder
     } else if ([managedObject isKindOfClass:[MLLabel class]]) {
+        
         MLLabel *folder = managedObject;
         NSSet *iterFiles = [NSSet setWithSet:folder.files];
         [folder removeFiles:folder.files];
-        for (MLFile *file in iterFiles)
+        
+        for (MLFile *file in iterFiles) {
             [self _deleteMediaObject:file];
+        }
+        
         [[MLMediaLibrary sharedMediaLibrary] removeObject:folder];
-    }
-    else
+        
+    // MARK: delete media object
+    } else {
         [self _deleteMediaObject:managedObject];
+    }
 
+    // MARK: update DB if needed
     if (updateDB) {
         [[MLMediaLibrary sharedMediaLibrary] updateMediaDatabase];
         [self updateViewContents];
@@ -416,9 +434,11 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
 
 - (void)_deleteMediaObject:(MLFile *)mediaObject
 {
-    if (inFolder)
+    if (inFolder) {
         [self rearrangeFolderTrackNumbersForRemovedItem:mediaObject];
+    }
 
+    // MARK: delete the subtitle files of the media object
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *folderLocation = [[[NSURL URLWithString:mediaObject.url] path] stringByDeletingLastPathComponent];
     NSArray *allfiles = [fileManager contentsOfDirectoryAtPath:folderLocation error:nil];
@@ -431,26 +451,36 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
     NSUInteger currentIndex = [indexSet firstIndex];
     for (unsigned int x = 0; x < count; x++) {
         additionalFilePath = allfiles[currentIndex];
-        if ([additionalFilePath isSupportedSubtitleFormat])
+        if ([additionalFilePath isSupportedSubtitleFormat]) {
             [fileManager removeItemAtPath:[folderLocation stringByAppendingPathComponent:additionalFilePath] error:nil];
+        }
         currentIndex = [indexSet indexGreaterThanIndex:currentIndex];
     }
+    
+    // MARK: delete the media file
     [fileManager removeItemAtPath:[[NSURL URLWithString:mediaObject.url] path] error:nil];
 }
 
 - (void)_displayEmptyLibraryViewIfNeeded
 {
-    if (self.emptyLibraryView.superview)
+    if (self.emptyLibraryView.superview) {
         [self.emptyLibraryView removeFromSuperview];
+    }
 
+    
     if (_foundMedia.count == 0) {
+        
         self.emptyLibraryView.emptyLibraryLabel.text = inFolder ? NSLocalizedString(@"FOLDER_EMPTY", nil) : NSLocalizedString(@"EMPTY_LIBRARY", nil);
+        
         self.emptyLibraryView.emptyLibraryLongDescriptionLabel.text = inFolder ? NSLocalizedString(@"FOLDER_EMPTY_LONG", nil) : NSLocalizedString(@"EMPTY_LIBRARY_LONG", nil);
+        
         self.emptyLibraryView.learnMoreButton.hidden = inFolder;
         self.emptyLibraryView.frame = self.view.bounds;
         [self.view addSubview:self.emptyLibraryView];
         self.navigationItem.rightBarButtonItem = nil;
+        
     } else {
+        
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             UIBarButtonItem *toggleDisplayedView = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tableViewIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleDisplayedView:)];
             self.navigationItem.rightBarButtonItems = @[toggleDisplayedView, self.editButtonItem];
@@ -458,11 +488,13 @@ static NSString *kDisplayedFirstSteps = @"Did we display the first steps tutoria
             self.navigationItem.rightBarButtonItem = self.editButtonItem;
         }
     }
-    if (_usingTableViewToShowData)
+    
+    if (_usingTableViewToShowData) {
         _tableView.separatorStyle = (_foundMedia.count > 0)? UITableViewCellSeparatorStyleSingleLine:
                                                              UITableViewCellSeparatorStyleNone;
-    else
+    } else {
         [self.collectionView.collectionViewLayout invalidateLayout];
+    }
 }
 
 - (void)libraryUpgradeComplete
