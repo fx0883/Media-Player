@@ -136,8 +136,8 @@
     else*/
     _sectionHeaderTexts = @[@"Universal Plug'n'Play (UPnP)", @"Plex Media Server (via Bonjour)", @"File Transfer Protocol (FTP)", NSLocalizedString(@"SHARED_VLC_IOS_LIBRARY", nil)];
 
-    _backToMenuButton = [UIBarButtonItem themedRevealMenuButtonWithTarget:self andSelector:@selector(goBack:)];
-    self.navigationItem.leftBarButtonItem = _backToMenuButton;
+//    _backToMenuButton = [UIBarButtonItem themedRevealMenuButtonWithTarget:self andSelector:@selector(goBack:)];
+//    self.navigationItem.leftBarButtonItem = _backToMenuButton;
 
     self.tableView.rowHeight = [VLCLocalNetworkListCell heightOfCell];
     self.tableView.separatorColor = [UIColor VLCDarkBackgroundColor];

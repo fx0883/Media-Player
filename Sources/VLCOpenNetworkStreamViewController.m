@@ -71,7 +71,9 @@
     [self.ScanSubModeLabel setAdjustsFontSizeToFitWidth:YES];
     [self.ScanSubModeLabel setNumberOfLines:0];
     self.title = NSLocalizedString(@"OPEN_NETWORK", nil);
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem themedRevealMenuButtonWithTarget:self andSelector:@selector(goBack:)];
+    
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem themedRevealMenuButtonWithTarget:self andSelector:@selector(goBack:)];
+    
     [self.whatToOpenHelpLabel setText:NSLocalizedString(@"OPEN_NETWORK_HELP", nil)];
     self.urlField.delegate = self;
     self.urlField.keyboardType = UIKeyboardTypeURL;

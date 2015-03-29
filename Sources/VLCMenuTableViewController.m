@@ -71,7 +71,7 @@
 
     _sectionHeaderTexts = @[@"SECTION_HEADER_LIBRARY", @"SECTION_HEADER_NETWORK", @"Settings"];
     _menuItemsSectionOne = @[@"LIBRARY_ALL_FILES", @"LIBRARY_MUSIC", @"LIBRARY_SERIES"];
-    _menuItemsSectionTwo = @[@"LOCAL_NETWORK", @"OPEN_NETWORK", @"DOWNLOAD_FROM_HTTP", @"WEBINTF_TITLE", @"CLOUD_SERVICES"];
+    _menuItemsSectionTwo = @[@"LOCAL_NETWORK", @"OPEN_NETWORK", @"DOWNLOAD_FROM_HTTP", @"WEBINTF_TITLE", @"Cloud Storages"];
 
     _menuItemsSectionThree = @[@"Settings", @"ABOUT_APP"];
 
@@ -212,7 +212,7 @@
             _uploadLocationLabel = [(VLCWiFiUploadTableViewCell*)cell uploadAddressLabel];
             _uploadButton = [(VLCWiFiUploadTableViewCell*)cell serverOnButton];
             [_uploadButton addTarget:self action:@selector(toggleHTTPServer:) forControlEvents:UIControlEventTouchUpInside];
-        } else if ([rawTitle isEqualToString:@"CLOUD_SERVICES"]) {
+        } else if ([rawTitle isEqualToString:@"Cloud Storages"]) {
             cell.imageView.image = [UIImage imageNamed:@"CloudServices"];
         }
     } else if (section == 2) {

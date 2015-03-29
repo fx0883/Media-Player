@@ -8,6 +8,11 @@
 
 #import "PSNetworkVC.h"
 #import "PSNetworkOptionCollectionCell.h"
+#import "VLCOpenNetworkStreamViewController.h"
+#import "VLCLocalServerListViewController.h"
+#import "VLCDownloadViewController.h"
+#import "VLCCloudServicesTableViewController.h"
+
 
 #define GAP    (10)
 
@@ -24,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Network";
+    self.navigationItem.title = NSLocalizedString(@"SECTION_HEADER_NETWORK", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     
     CGSize viewSize = self.view.bounds.size;
@@ -48,8 +53,13 @@
     [_collectionView registerClass:[PSNetworkOptionCollectionCell class] forCellWithReuseIdentifier:@"optionCell"];
     
     ///
-    _titles = @[@"Network", @"Download", @"Wifi", @"Cloud"];
+    _titles = @[NSLocalizedString(@"LOCAL_NETWORK", nil)
+                , NSLocalizedString(@"DOWNLOAD_FROM_HTTP", nil)
+                , NSLocalizedString(@"WEBINTF_TITLE", nil)
+                , NSLocalizedString(@"Cloud Storages", nil)];
+    
     _images = @[@"network_option_local", @"network_option_down", @"network_option_wifi", @"network_option_cloud"];
+
 }
 
 #pragma mark - collection view methods
@@ -64,6 +74,19 @@
     cell.imageviewLogo.image = [UIImage imageNamed:_images[indexPath.row]];
     
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        VLCLocalServerListViewController *vc = [VLCLocalServerListViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 1) {
+        VLCDownloadViewController *vc = [[VLCDownloadViewController alloc] initWithNibName:@"VLCFutureDownloadViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 3) {
+        VLCCloudServicesTableViewController *vc = [[VLCCloudServicesTableViewController alloc] initWithNibName:@"VLCCloudServicesTableViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
