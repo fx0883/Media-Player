@@ -12,7 +12,7 @@
 #import "VLCLocalServerListViewController.h"
 #import "VLCDownloadViewController.h"
 #import "VLCCloudServicesTableViewController.h"
-
+#import "PSWifiShareSettingVC.h"
 
 #define GAP    (10)
 
@@ -83,6 +83,11 @@
     } else if (indexPath.row == 1) {
         VLCDownloadViewController *vc = [[VLCDownloadViewController alloc] initWithNibName:@"VLCFutureDownloadViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 2) {
+    
+        PSWifiShareSettingVC *vc = [PSWifiShareSettingVC new];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     } else if (indexPath.row == 3) {
         VLCCloudServicesTableViewController *vc = [[VLCCloudServicesTableViewController alloc] initWithNibName:@"VLCCloudServicesTableViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];

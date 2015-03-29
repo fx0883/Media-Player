@@ -513,6 +513,7 @@
 		EA8029FA1ABC678A006437B4 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8029ED1ABC678A006437B4 /* NSArray+MASAdditions.m */; };
 		EA8029FB1ABC678A006437B4 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8029F01ABC678A006437B4 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		EA8029FC1ABC678A006437B4 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8029F21ABC678A006437B4 /* View+MASAdditions.m */; };
+		EADBB1EF1AC7D956009D90E6 /* PSWifiShareSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EADBB1EE1AC7D956009D90E6 /* PSWifiShareSettingVC.m */; };
 		F2C35D201AB009CC0043CB89 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */; };
 		F2C35D211AB009CC0043CB89 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1D1AB009CC0043CB89 /* RDVTabBarController.m */; };
 		F2C35D221AB009CC0043CB89 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C35D1F1AB009CC0043CB89 /* RDVTabBarItem.m */; };
@@ -1467,6 +1468,8 @@
 		EA8029F11ABC678A006437B4 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
 		EA8029F21ABC678A006437B4 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		EA8029F31ABC678A006437B4 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		EADBB1ED1AC7D956009D90E6 /* PSWifiShareSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWifiShareSettingVC.h; sourceTree = "<group>"; };
+		EADBB1EE1AC7D956009D90E6 /* PSWifiShareSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWifiShareSettingVC.m; sourceTree = "<group>"; };
 		F2C35D1A1AB009CC0043CB89 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
 		F2C35D1B1AB009CC0043CB89 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
 		F2C35D1C1AB009CC0043CB89 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
@@ -2778,6 +2781,8 @@
 				F2C35D191AB009CC0043CB89 /* RDVTabBarController */,
 				EA8029D91ABC6618006437B4 /* PSNetworkVC.h */,
 				EA8029DA1ABC6618006437B4 /* PSNetworkVC.m */,
+				EADBB1ED1AC7D956009D90E6 /* PSWifiShareSettingVC.h */,
+				EADBB1EE1AC7D956009D90E6 /* PSWifiShareSettingVC.m */,
 				EA79B3DA1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.h */,
 				EA79B3DB1AC1A54500C17F15 /* PSNetworkOptionCollectionCell.m */,
 			);
@@ -3338,6 +3343,7 @@
 				2915542717490A9C00B86CAD /* DDLog.m in Sources */,
 				2915542817490A9C00B86CAD /* DDTTYLogger.m in Sources */,
 				2915542917490A9C00B86CAD /* ContextFilterLogFormatter.m in Sources */,
+				EADBB1EF1AC7D956009D90E6 /* PSWifiShareSettingVC.m in Sources */,
 				2915542A17490A9C00B86CAD /* DispatchQueueLogFormatter.m in Sources */,
 				7DC19B051868D1C400810BF7 /* VLCFirstStepsFifthPageViewController.m in Sources */,
 				2915543B17490B9C00B86CAD /* HTTPAsyncFileResponse.m in Sources */,
