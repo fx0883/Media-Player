@@ -10,6 +10,5 @@
  * Refer to the COPYING file of the official project for license.
  *****************************************************************************/
 
-#define kVLCDropboxAppKey @"a60fc6qj9zdg7bw"
-#warning Dropbox app secret missing, login will fail
-#define kVLCDropboxPrivateKey @""
+#define kVLCDropboxAppKey @"3v5qyge53fwztz8"
+#define kVLCDropboxPrivateKey @"df3hooyzfm8qvv5"
